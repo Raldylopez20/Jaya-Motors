@@ -28,6 +28,3 @@ Más de **17 años de experiencia** ofreciendo neumáticos importados, mantenimi
 Visualizar Proyecto:  
 👉 [Jaya Motors Landing](https://raldylopez20.github.io/Jaya-Motors/)
 
-1. Clona el repositorio:
-   ```bash
-   git clone https://github.com/raldylopez20/Jaya-Motors.git
