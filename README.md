@@ -18,8 +18,12 @@ Más de **17 años de experiencia** ofreciendo neumáticos importados, mantenimi
 ---
 
 ## 🛠️ Tecnologías Utilizadas
-- **HTML5 / CSS3 / JavaScript**
-- **Bootstrap** para estilos y componentes responsivos
+- **HTML5 / CSS3 / JavaScript (ES6+ Modular)**
+- **CSS Grid, Flexbox & CSS Custom Properties** (Diseño *Asphalt Dark & Titanium*, Bento Grid y Scroll-Snap)
+- **IntersectionObserver API** para contadores animados y animaciones de revelado en scroll
+- **Iconografía SVG Vectorial a medida** y **Lightbox interactivo** con filtros dinámicos
+- **Google Fonts** (`Outfit`, `Plus Jakarta Sans`, `JetBrains Mono`)
+- **Integración directa con WhatsApp API, Google Maps y Waze**
 - **GitHub Pages** para despliegue
 
 ---

@@ -3,458 +3,1125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jaya Motors - Centro Automotriz | Expertos en Tu Vehículo</title>
+    <meta name="description" content="Jaya Motors - Centro Automotriz en San Francisco de Macorís. Más de 17 años de experiencia en venta de neumáticos importados de Japón (85%+ vida útil), cambio de aceite, balanceo, frenos y reparación de aros.">
+    <title>Jaya Motors | Centro Automotriz & Neumáticos Japoneses en SFM</title>
+    
+    <!-- Favicon oficial de Jaya Motors -->
     <link rel="icon" type="image/png" href="img/logo.png">
+
+    <!-- Tipografías Google Fonts: Outfit (Titulares Motorsport), Plus Jakarta Sans (Cuerpo) y JetBrains Mono (Telemetría/Datos) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Hoja de estilos principal (Arquitectura modular separada) -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- ================================ -->
-    <!-- HEADER / NAVEGACIÓN -->
-    <!-- ================================ -->
-    <header>
-        <nav>
-            <div class="logo">
-                <span class="logo-icon">🔧</span>
-                <span class="logo-text">JAYA MOTORS</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nosotros">Nosotros</a></li>
-                <li><a href="#servicios">Servicios</a></li>
-                <li><a href="#trabajos">Trabajos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
+
+    <!-- Barra superior de progreso de lectura / telemetría de scroll -->
+    <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+
+    <!-- ==========================================================================
+         FONDO AMBIENTAL Y TEXTURA TÉCNICA
+         Luces sutiles en Rojo Racing y Azul Cobalto sobre negro asfalto
+         ========================================================================== -->
+    <div class="ambient-bg" aria-hidden="true">
+        <div class="ambient-glow ambient-glow--red"></div>
+        <div class="ambient-glow ambient-glow--blue"></div>
+        <div class="ambient-grid"></div>
+    </div>
+
+    <!-- ==========================================================================
+         HEADER / NAVEGACIÓN FLOTANTE (GLASSMORPHISM)
+         Incluye logo oficial, indicador en tiempo real de horario en SFM y menú
+         ========================================================================== -->
+    <header class="site-header" id="siteHeader">
+        <nav class="navbar container" aria-label="Navegación principal">
+            <!-- Marca / Logo -->
+            <a href="#inicio" class="brand" aria-label="Jaya Motors - Ir al inicio">
+                <div class="brand-logo-wrap">
+                    <img src="img/logo.png" alt="Logo Jaya Motors" class="brand-logo">
+                </div>
+                <div class="brand-text">
+                    <span class="brand-name">JAYA <em>MOTORS</em></span>
+                    <span class="brand-tag">SAN FRANCISCO DE MACORÍS</span>
+                </div>
+            </a>
+
+            <!-- Enlaces de navegación -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" class="nav-link active">Inicio</a></li>
+                <li><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li><a href="#nosotros" class="nav-link">Por Qué Elegirnos</a></li>
+                <li><a href="#trabajos" class="nav-link">Productos</a></li>
+                <li><a href="#testimonios" class="nav-link">Clientes</a></li>
+                <li><a href="#contacto" class="nav-link">Ubicación</a></li>
             </ul>
-            <div class="menu-mobile">☰</div>
+
+            <!-- Botón Hamburguesa Móvil (Sin emojis, barras animadas por CSS) -->
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Abrir menú de navegación" aria-expanded="false">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
         </nav>
     </header>
 
-    <!-- ================================ -->
-    <!-- HERO SECTION (Sección Principal) -->
-    <!-- ================================ -->
-    <section class="hero" id="inicio">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <div class="hero-badge">⭐ Tu Centro Automotriz de confianza</div>
-            <h1>Tu Vehículo en las Mejores Manos</h1>
-            <p>Más de 17 años de experiencia entregando neumaticos usados de alta calidad, de vehiculos chocados de japon.</p>
-            <div class="hero-buttons">
-                <a href="#" class="cta-button primary" onclick="openWhatsApp(); return false;">
-                    Agenda tu Cita
-                </a>
-                <a href="#servicios" class="cta-button secondary">
-                    Ver Servicios
-                </a>
-            </div>
-        </div>
-        <div class="hero-stats">
-            <div class="stat-item">
-                <div class="stat-number">17+</div>
-                <div class="stat-label">Años de Experiencia</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">7,000+</div>
-                <div class="stat-label">Clientes Satisfechos</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">100%</div>
-                <div class="stat-label">Confiables</div>
-            </div>
-        </div>
-    </section>
+    <main>
+        <!-- ==========================================================================
+             SECCIÓN HERO (PORTADA PRINCIPAL CENTRADA)
+             ========================================================================== -->
+        <section class="hero" id="inicio">
+            <div class="container hero-centered">
+                <div class="hero-copy">
+                    <h1 class="hero-title hero-title--brand-gradient">
+                        Tu Vehículo en las Mejores Manos.
+                    </h1>
 
-    <!-- ================================ -->
-    <!-- BARRA DE EMERGENCIA -->
-    <!-- ================================ -->
-    <section class="emergency-bar">
-        <div class="container">
-            <div class="emergency-content">
-                <span class="emergency-icon">🚨</span>
-                <span class="emergency-text">No te quedes en la carretera ¡Llámanos ahora y cotiza! o  ven a nuestro centro de servicios.</span>
-                <a href="#" class="emergency-button" onclick="openWhatsApp(); return false;">
-                    Contactar Ahora
-                </a>
-            </div>
-        </div>
-    </section>
+                    <p class="hero-description">
+                        Más de <strong>17 años de experiencia</strong> entregando neumáticos usados de alta calidad importados de vehículos de <strong>Japón con más de un 85% de vida útil</strong>, junto al servicio mecánico más confiable de San Francisco de Macorís.
+                    </p>
 
-    <!-- ================================ -->
-    <!-- SECCIÓN POR QUÉ ELEGIRNOS -->
-    <!-- ================================ -->
-    <section class="porque-elegirnos" id="nosotros">
-        <div class="container">
-            <h2 class="section-title">¿Por Qué Elegirnos?</h2>
-            <p class="section-subtitle">La experiencia y calidad que tu vehículo merece.</p>
-            
-            <div class="razones-grid">
-                <!-- Razón 1 -->
-                <div class="razon-card">
-                    <div class="razon-icon">👨‍🔧</div>
-                    <h3>Personal Calificado, Diligente, Honesto y Rapido.</h3>
-                  <!--  <p>Nuestro equipo cuenta con más de 15 años de experiencia y certificaciones internacionales en mecánica automotriz.</p> -->
-                </div>
-
-                <!-- Razón 2 -->
-                <div class="razon-card">
-                    <div class="razon-icon">🛠️</div>
-                    <h3>Equipos de Última Generación</h3>
-                    <p>Contamos con la tecnología más avanzada para diagnosticar y reparar cualquier problema de tu vehículo.</p>
-                </div>
-
-                <!-- Razón 3 -->
-                <div class="razon-card">
-                    <div class="razon-icon">✅</div>
-                    <h3>Alta Calidad</h3>
-                    <p>Nuestros neumaticos de vehiculos chocados de japon es casi su totalidad vienen con mas de un 85% de su vida uti, disponible para usarse aqui en Rep. Dom.</p>
-                </div>
-
-                <!-- Razón 4 -->
-                <div class="razon-card">
-                    <div class="razon-icon">💰</div>
-                    <h3>Precios Justos</h3>
-                    <p>Ofrecemos los mejores precios del mercado sin sacrificar la calidad de nuestros  Productos.</p>
-                </div>
-
-                <!-- Razón 5 -->
-                <div class="razon-card">
-                    <div class="razon-icon">⚡</div>
-                    <h3>Servicio Rápido</h3>
-                    <p>Respetamos tu tiempo, trabajamos por orden de llegada. contamos con un equipo capaz que no pierde tiempo.</p>
-                </div>
-
-                <!-- Razón 6 -->
-                <div class="razon-card">
-                    <div class="razon-icon">📱</div>
-                    <h3>Atención Personalizada</h3>
-                    <p>Te mantenemos informado en cada paso del proceso. Comunicación directa y transparente siempre.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================================ -->
-    <!-- SECCIÓN DE SERVICIOS -->
-    <!-- ================================ -->
-    <section class="servicios" id="servicios">
-        <div class="container">
-            <h2 class="section-title white">Nuestros Servicios</h2>
-            <p class="section-subtitle white">Soluciones completas para tu vehículo</p>
-            
-            <div class="servicios-grid">
-                <!-- Servicio 1 -->
-                <div class="servicio-card">
-                    <div class="servicio-icon">🔧</div>
-                    <h3>Nuestros Servicios</h3>
-                    <ul>
-                        <li>Venta de Gomas Nuevas y Usadas</li>
-                        <li>Cambio de Aceite</li>
-                        <li>Balanceo</li>
-                        <li>Cambio de Banda</li>
-                        <li>Reparacion de aros</li>
-                    </ul>
-                </div>
-
-                
-
-            <div class="servicios-cta">
-                <p>¿No encuentras el servicio que buscas?</p>
-                <a href="#" class="cta-button white" onclick="openWhatsApp(); return false;">
-                    Consulta Aquí
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ================================ -->
-    <!-- SECCIÓN DE TRABAJOS/GALERÍA -->
-    <!-- ================================ -->
-    <section class="trabajos" id="trabajos">
-        <div class="container">
-            <h2 class="section-title">Nuestros Productos</h2>
-            <p class="section-subtitle">Calidad que habla por sí misma</p>
-            
-            <div class="trabajos-grid">
-                <!-- Trabajo 1 -->
-                <div class="trabajo-card">
-                    <img src="img/goma2.jpg" alt="Mecánico trabajando en motor">
-                    <div class="trabajo-overlay">
-                       <!-- <h3>Reparación de Motor</h3>
-                        <p>Trabajo completo y garantizado</p> -->
-                    </div>
-                </div>
-
-                <!-- Trabajo 2 -->
-                <div class="trabajo-card">
-                    <img src="img/goma4.jpg" alt="Cambio de frenos">
-                    <div class="trabajo-overlay">
-                       <!-- <h3>Sistema de Frenos</h3>
-                        <p>Seguridad ante todo</p> -->
-                    </div>
-                </div>
-
-                <!-- Trabajo 3 -->
-                <div class="trabajo-card">
-                    <img src="img/goma1.avif" alt="Vehículo en taller">
-                    <div class="trabajo-overlay">
-                       <!-- <h3>Mantenimiento Completo</h3>
-                        <p>Tu carro como nuevo</p> -->
-                    </div>
-                </div>
-
-
-                <!-- Trabajo 5 -->
-                <div class="trabajo-card">
-                    <img src="img/aceite.jpg" alt="Taller profesional">
-                    <div class="trabajo-overlay">
-                        <!-- <h3>Instalaciones Modernas</h3>
-                        <p>Equipado para todo</p> -->
-                    </div>
-                </div>
-
-                <!-- Trabajo 6 -->
-                <div class="trabajo-card">
-                    <img src="img/aro.jpeg" alt="Equipo de trabajo">
-                    <div class="trabajo-overlay">
-                      <!--  <h3>Equipo Profesional</h3>
-                        <p>Expertos en acción</p> -->
-                    </div>
-                </div>
-
-                <!-- Trabajo 4 -->
-                <div class="trabajo-card">
-                    <img src="img/goma3.jpg" alt="Diagnóstico computarizado">
-                    <div class="trabajo-overlay">
-                      <!--  <h3>Diagnóstico Digital</h3>
-                        <p>Tecnología de punta</p> -->
-                    </div>
-                </div>
-
-
-            </div>
-        </div>
-    </section>
-
-    <!-- ================================ -->
-    <!-- SECCIÓN DE TESTIMONIOS -->
-    <!-- ================================ -->
-    <section class="testimonios">
-        <div class="container">
-            <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
-            <p class="section-subtitle">Experiencias reales de personas satisfechas</p>
-            
-            <div class="testimonios-grid">
-                <!-- Testimonio 1 -->
-                <div class="testimonio-card">
-                    <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonio-text">"Compré 4 gomas usadas en y me sorprendió lo buenas que han salido. La calidad es excelente, se sienten seguras en la carretera y el precio fue más que justo. Estoy encantado con la compra."</p>
-                    <div class="testimonio-autor">
-                        <strong>Miguel Ángel Santos</strong>
-                        <span>Propietario Toyota Hilux</span>
-                    </div>
-                </div>
-
-                <!-- Testimonio 2 -->
-                <div class="testimonio-card">
-                    <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonio-text">"Fui para un cambio de aceite y quedé más que satisfecha. El servicio fue rápido, profesional y me explicaron todo con claridad. Mi vehículo quedó en perfectas condiciones, definitivamente volveré.</p>
-                    <div class="testimonio-autor">
-                        <strong>Carmen Rodríguez</strong>
-                        <span>Propietaria Honda Civic</span>
-                    </div>
-                </div>
-
-                <!-- Testimonio 3 -->
-                <div class="testimonio-card">
-                    <div class="testimonio-stars">⭐⭐⭐⭐⭐</div>
-                    <p class="testimonio-text">"La atención en Jaya Motors es de primera. El personal es amable, el servicio es eficiente y los precios son muy competitivos. Calidad y confianza al mejor precio, ¡lo recomiendo sin dudas!"</p>
-                    <div class="testimonio-autor">
-                        <strong>Rafael Pérez</strong>
-                        <span>Propietario Honda CRV</span>
+                    <!-- Mini-telemetría de garantía japonesa -->
+                    <div class="hero-highlights">
+                        <div class="highlight-pill">
+                            <svg class="icon-sm text-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="3"/>
+                                <line x1="12" y1="2" x2="12" y2="5"/>
+                                <line x1="12" y1="19" x2="12" y2="22"/>
+                                <line x1="2" y1="12" x2="5" y2="12"/>
+                                <line x1="19" y1="12" x2="22" y2="12"/>
+                            </svg>
+                            <span>Importación Directa de Japón</span>
+                        </div>
+                        <div class="highlight-pill">
+                            <svg class="icon-sm text-cobalt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
+                            <span>85%+ Vida Útil Garantizada</span>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- ================================ -->
-    <!-- SECCIÓN CTA FINAL -->
-    <!-- ================================ -->
-    <section class="cta-final" id="contacto">
-            <div class="cta-content">
-                <h2>¿Listo para Darle el Mejor Servicio a Tu Vehículo?</h2>
-                <p>No esperes a que un pequeño problema se convierta en uno grande. Ven a nuestro centro de servicios  y mantén tu vehículo en óptimas condiciones.</p>
+            <!-- Barra de Estadísticas Tipo Tablero Digital (Telemetría) -->
+            <div class="container">
+                <div class="telemetry-bar">
+                    <div class="telemetry-item">
+                        <div class="telemetry-value">
+                            <span class="counter" data-target="17">0</span><span class="telemetry-suffix">+</span>
+                        </div>
+                        <div class="telemetry-meta">
+                            <span class="telemetry-title">Años de Experiencia</span>
+                            <span class="telemetry-sub">Trayectoria ininterrumpida en SFM</span>
+                        </div>
+                    </div>
 
-                    <a href="#" class="cta-button large whatsapp" onclick="openWhatsApp(); return false;" style="background-color: #25D366; color: white; border: none; transition: all 0.3s ease; transform: translateY(0); box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);" onmouseover="this.style.backgroundColor='#128C7E'; this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(37, 211, 102, 0.4)';" onmouseout="this.style.backgroundColor='#25D366'; this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(37, 211, 102, 0.3)';">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: middle; margin-right: 8px; transition: transform 0.3s ease;">
+                    <div class="telemetry-divider" aria-hidden="true"></div>
+
+                    <div class="telemetry-item">
+                        <div class="telemetry-value">
+                            <span class="counter" data-target="7000">0</span><span class="telemetry-suffix">+</span>
+                        </div>
+                        <div class="telemetry-meta">
+                            <span class="telemetry-title">Clientes Satisfechos</span>
+                            <span class="telemetry-sub">Conductores seguros en todo el Cibao</span>
+                        </div>
+                    </div>
+
+                    <div class="telemetry-divider" aria-hidden="true"></div>
+
+                    <div class="telemetry-item">
+                        <div class="telemetry-value">
+                            <span class="counter" data-target="85">0</span><span class="telemetry-suffix">%+</span>
+                        </div>
+                        <div class="telemetry-meta">
+                            <span class="telemetry-title">Vida Útil en Gomas</span>
+                            <span class="telemetry-sub">Importadas de vehículos de Japón</span>
+                        </div>
+                    </div>
+
+                    <div class="telemetry-divider" aria-hidden="true"></div>
+
+                    <div class="telemetry-item">
+                        <div class="telemetry-value">
+                            <span class="counter" data-target="100">0</span><span class="telemetry-suffix">%</span>
+                        </div>
+                        <div class="telemetry-meta">
+                            <span class="telemetry-title">Confiables y Honestos</span>
+                            <span class="telemetry-sub">Garantía y diagnóstico transparente</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             BARRA DE ASISTENCIA / COTIZACIÓN RÁPIDA (EX-BARRA DE EMERGENCIA)
+             Diseño tipo Pit-Stop con pulso LED rojo y botón rápido a WhatsApp
+             ========================================================================== -->
+        <section class="pitstop-banner" aria-label="Asistencia rápida en carretera">
+            <div class="container pitstop-inner">
+                <div class="pitstop-left">
+                    <div class="pitstop-beacon" aria-hidden="true">
+                        <span class="beacon-ring"></span>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <div class="pitstop-copy">
+                        <span class="pitstop-tag">RESPUESTA INMEDIATA · ORDEN DE LLEGADA</span>
+                        <p class="pitstop-text">
+                            <strong>No te quedes en la carretera.</strong> ¡Llámanos ahora y cotiza al instante o ven directamente a nuestro centro de servicios!
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pitstop-actions">
+                    <a href="tel:+18292902929" class="btn btn-dark-glass">
+                        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <span>(829) 290-2929</span>
+                    </a>
+                    <button type="button" class="btn btn-light-red" data-wa-service="Hola Jaya Motors! Necesito asistencia / cotizar un servicio urgente para mi vehículo.">
+                        <span>Contactar Ahora</span>
+                        <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECCIÓN DE SERVICIOS (BENTO GRID DE 5 TARJETAS ESPECIALIZADAS)
+             Cada servicio cuenta con su propia tarjeta, icono SVG técnico y cotización directa
+             ========================================================================== -->
+        <section class="section services-section" id="servicios">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">SOLUCIONES COMPLETAS PARA TU VEHÍCULO</span>
+                    <h2 class="section-title">Nuestros Servicios Especializados</h2>
+                    <p class="section-subtitle">
+                        Equipamiento moderno, mano de obra experta y atención por orden de llegada sin hacerte perder tiempo.
+                    </p>
+                </div>
+
+                <!-- Bento Grid de los 5 servicios clave de Jaya Motors -->
+                <div class="services-bento">
+
+                    <!-- Servicio 1 (Tarjeta Principal Destacada): Venta de Gomas Nuevas y Usadas -->
+                    <article class="service-card service-card--featured spotlight-card">
+                        <div class="service-top">
+                            <div class="service-icon-box">
+                                <!-- Icono SVG: Neumático de precisión -->
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <circle cx="12" cy="12" r="5.5"/>
+                                    <circle cx="12" cy="12" r="2"/>
+                                    <path d="M12 2v4.5M12 17.5V22M2 12h4.5M17.5 12H22M4.93 4.93l3.18 3.18M15.89 15.89l3.18 3.18M19.07 4.93l-3.18 3.18M8.11 15.89l-3.18 3.18"/>
+                                </svg>
+                            </div>
+                            <span class="service-number">SERVICIO ESTRELLA · 01</span>
+                        </div>
+
+                        <h3 class="service-title">Venta de Gomas Nuevas y Usadas</h3>
+                        <p class="service-desc">
+                            Especialistas en neumáticos importados directamente de vehículos chocados de Japón: casi en su totalidad conservan <strong>más de un 85% de su vida útil original</strong>. También disponemos de gomas nuevas en todas las numeraciones para sedanes, SUVs y camionetas.
+                        </p>
+
+                        <ul class="service-features">
+                            <li>
+                                <svg class="icon-xs text-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Caucho original japonés de alta durabilidad</span>
+                            </li>
+                            <li>
+                                <svg class="icon-xs text-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Más de 85% de vida útil comprobada</span>
+                            </li>
+                            <li>
+                                <svg class="icon-xs text-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                <span>Numeraciones para carros, jeepetas y camionetas</span>
+                            </li>
+                        </ul>
+
+                        <button type="button" class="service-link" data-wa-service="Hola Jaya Motors! Me interesa cotizar Gomas Nuevas o Usadas Japonesas para mi vehículo.">
+                            <span>Cotizar mi numeración</span>
+                            <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </article>
+
+                    <!-- Servicio 2: Cambio de Aceite -->
+                    <article class="service-card spotlight-card">
+                        <div class="service-top">
+                            <div class="service-icon-box">
+                                <!-- Icono SVG: Gota de lubricante / Aceite -->
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                                    <path d="M9.5 14.5a3.5 3.5 0 0 0 5 0"/>
+                                </svg>
+                            </div>
+                            <span class="service-number">02</span>
+                        </div>
+                        <h3 class="service-title">Cambio de Aceite</h3>
+                        <p class="service-desc">
+                            Mantenimiento preventivo con aceites sintéticos y semisintéticos de primera calidad. Protegemos tu motor contra el desgaste y las altas temperaturas.
+                        </p>
+                        <button type="button" class="service-link" data-wa-service="Hola Jaya Motors! Quiero cotizar un Cambio de Aceite para mi vehículo.">
+                            <span>Cotizar cambio de aceite</span>
+                            <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </article>
+
+                    <!-- Servicio 3: Balanceo Computarizado -->
+                    <article class="service-card spotlight-card">
+                        <div class="service-top">
+                            <div class="service-icon-box">
+                                <!-- Icono SVG: Precisión / Balanceo -->
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <path d="M12 3v3M12 18v3M3 12h3M18 12h3"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </div>
+                            <span class="service-number">03</span>
+                        </div>
+                        <h3 class="service-title">Balanceo Computarizado</h3>
+                        <p class="service-desc">
+                            Equilibrado digital de alta exactitud para eliminar vibraciones en el volante, mejorar la estabilidad y asegurar un desgaste parejo en tus neumáticos.
+                        </p>
+                        <button type="button" class="service-link" data-wa-service="Hola Jaya Motors! Quiero consultar por el servicio de Balanceo para mi vehículo.">
+                            <span>Agendar balanceo</span>
+                            <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </article>
+
+                    <!-- Servicio 4: Cambio de Banda -->
+                    <article class="service-card spotlight-card">
+                        <div class="service-top">
+                            <div class="service-icon-box">
+                                <!-- Icono SVG: Disco y Caliper de Freno -->
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="8"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M16.5 3.5A10 10 0 0 1 21 12"/>
+                                    <path d="M14 6.5l3-2"/>
+                                    <path d="M17.5 10l2.5-1"/>
+                                </svg>
+                            </div>
+                            <span class="service-number">04</span>
+                        </div>
+                        <h3 class="service-title">Cambio de Banda</h3>
+                        <p class="service-desc">
+                            Inspección y reemplazo de bandas y pastillas de freno para garantizarte un frenado silencioso, firme y 100% seguro en cualquier emergencia.
+                        </p>
+                        <button type="button" class="service-link" data-wa-service="Hola Jaya Motors! Quiero cotizar un Cambio de Bandas de freno para mi vehículo.">
+                            <span>Cotizar cambio de banda</span>
+                            <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </article>
+
+                    <!-- Servicio 5: Reparación de Aros -->
+                    <article class="service-card spotlight-card">
+                        <div class="service-top">
+                            <div class="service-icon-box">
+                                <!-- Icono SVG: Herramienta / Soldadura y rectificación de aro -->
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                    <circle cx="12" cy="12" r="4"/>
+                                </svg>
+                            </div>
+                            <span class="service-number">05</span>
+                        </div>
+                        <h3 class="service-title">Reparación de Aros</h3>
+                        <p class="service-desc">
+                            Enderezado, soldadura especializada y corrección de fisuras o golpes por baches para devolverle la integridad estructural y estética a tus aros.
+                        </p>
+                        <button type="button" class="service-link" data-wa-service="Hola Jaya Motors! Necesito información sobre Reparación de Aros.">
+                            <span>Consultar reparación de aro</span>
+                            <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </button>
+                    </article>
+
+                </div>
+
+                <!-- Banner inferior de consulta personalizada -->
+                <div class="services-footer-bar">
+                    <div class="services-footer-copy">
+                        <h4>¿No encuentras el servicio o numeración que buscas?</h4>
+                        <p>Escríbenos directamente y nuestro equipo revisará disponibilidad en el almacén al instante.</p>
+                    </div>
+                    <button type="button" class="btn btn-outline-light" data-wa-service="Hola Jaya Motors! Tengo una consulta sobre un servicio o pieza para mi vehículo.">
+                        <svg class="icon-sm" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
                         </svg>
-                        Contactar por WhatsApp
-                    </a>
+                        <span>Consultar Disponibilidad Aquí</span>
+                    </button>
                 </div>
-                <div class="cta-info">
-                    <div class="info-item">
-                        <strong>📍 Ubicación:</strong>
-                        <a href="https://www.google.com/maps/search/?api=1&query=19.3134437,-70.2682731" target="_blank" style="color: inherit; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#25D366'; this.style.textDecoration='underline';" onmouseout="this.style.color='inherit'; this.style.textDecoration='none';">Calle Caonabo #12, San Francisco De Macoris</a>
-                        <a href="https://waze.com/ul?ll=19.3134437,-70.2682731&navigate=yes" target="_blank" style="color: inherit; text-decoration: none; margin-left: 8px; transition: color 0.3s ease;" onmouseover="this.style.color='#25D366'; this.style.textDecoration='underline';" onmouseout="this.style.color='inherit'; this.style.textDecoration='none';" title="Abrir en Waze">🗺️</a>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECCIÓN ¿POR QUÉ ELEGIRNOS? (6 PILARES CON ICONOS SVG Y CERO BORDES AZULES)
+             Tarjetas limpias en acabado Titanio con efecto Spotlight al pasar el cursor
+             ========================================================================== -->
+        <section class="section why-us-section" id="nosotros">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">ESTÁNDAR DE EXCELENCIA JAYA MOTORS</span>
+                    <h2 class="section-title">¿Por Qué Elegirnos?</h2>
+                    <p class="section-subtitle">
+                        La experiencia, honestidad y calidad japonesa que tu vehículo merece en cada visita.
+                    </p>
+                </div>
+
+                <div class="pillars-grid">
+                    <!-- Razón 1 -->
+                    <article class="pillar-card spotlight-card">
+                        <div class="pillar-header">
+                            <div class="pillar-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <polyline points="16 11 18 13 22 9"/>
+                                </svg>
+                            </div>
+                            <span class="pillar-index">01</span>
+                        </div>
+                        <h3 class="pillar-title">Personal Calificado, Diligente, Honesto y Rápido</h3>
+                        <p class="pillar-desc">
+                            Nuestro equipo técnico trabaja con disciplina y honestidad comprobada, cuidando cada detalle de tu vehículo como si fuera propio.
+                        </p>
+                    </article>
+
+                    <!-- Razón 2 -->
+                    <article class="pillar-card spotlight-card">
+                        <div class="pillar-header">
+                            <div class="pillar-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                </svg>
+                            </div>
+                            <span class="pillar-index">02</span>
+                        </div>
+                        <h3 class="pillar-title">Equipos de Última Generación</h3>
+                        <p class="pillar-desc">
+                            Contamos con la tecnología más avanzada en desmontaje, balanceo y rectificación para diagnosticar y resolver cualquier problema de tu vehículo.
+                        </p>
+                    </article>
+
+                    <!-- Razón 3 -->
+                    <article class="pillar-card spotlight-card">
+                        <div class="pillar-header">
+                            <div class="pillar-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    <path d="m9 12 2 2 4-4"/>
+                                </svg>
+                            </div>
+                            <span class="pillar-index">03</span>
+                        </div>
+                        <h3 class="pillar-title">Alta Calidad Importada de Japón</h3>
+                        <p class="pillar-desc">
+                            Nuestros neumáticos de vehículos chocados de Japón en casi su totalidad vienen con más de un 85% de su vida útil, disponibles para usarse aquí en Rep. Dom.
+                        </p>
+                    </article>
+
+                    <!-- Razón 4 -->
+                    <article class="pillar-card spotlight-card">
+                        <div class="pillar-header">
+                            <div class="pillar-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <line x1="12" y1="1" x2="12" y2="23"/>
+                                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                                </svg>
+                            </div>
+                            <span class="pillar-index">04</span>
+                        </div>
+                        <h3 class="pillar-title">Precios Justos</h3>
+                        <p class="pillar-desc">
+                            Ofrecemos los mejores precios del mercado sin sacrificar jamás la seguridad ni la calidad de nuestros productos.
+                        </p>
+                    </article>
+
+                    <!-- Razón 5 -->
+                    <article class="pillar-card spotlight-card">
+                        <div class="pillar-header">
+                            <div class="pillar-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                                </svg>
+                            </div>
+                            <span class="pillar-index">05</span>
+                        </div>
+                        <h3 class="pillar-title">Servicio Rápido</h3>
+                        <p class="pillar-desc">
+                            Respetamos tu tiempo: trabajamos por orden de llegada y contamos con un equipo ágil y capaz que no pierde tiempo.
+                        </p>
+                    </article>
+
+                    <!-- Razón 6 -->
+                    <article class="pillar-card spotlight-card">
+                        <div class="pillar-header">
+                            <div class="pillar-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                                </svg>
+                            </div>
+                            <span class="pillar-index">06</span>
+                        </div>
+                        <h3 class="pillar-title">Atención Personalizada</h3>
+                        <p class="pillar-desc">
+                            Te mantenemos informado en cada paso del proceso. Comunicación directa, honesta y transparente siempre.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECCIÓN DE PRODUCTOS Y TRABAJOS (GALERÍA FILTRABLE + LIGHTBOX)
+             Muestra las 6 imágenes reales del negocio con etiquetas técnicas y zoom
+             ========================================================================== -->
+        <section class="section showcase-section" id="trabajos">
+            <div class="container">
+                <div class="showcase-header-row">
+                    <div>
+                        <span class="section-kicker">INVENTARIO Y TALLER EN ACCIÓN</span>
+                        <h2 class="section-title">Nuestros Productos y Trabajos</h2>
+                        <p class="section-subtitle">
+                            Calidad real que habla por sí misma en cada goma, aro y mantenimiento.
+                        </p>
                     </div>
-                    <div class="info-item">
-                        <strong>🕐 Horario:</strong>
-                        <span>Lunes - Viernes: 8:00 AM - 6:00 PM</span>
-                        <span>Sábados : 8:00 AM - 4:00 PM</span>
+
+                    <!-- Filtros de categoría interactivos -->
+                    <div class="gallery-filters" role="tablist" aria-label="Filtrar galería de productos">
+                        <button type="button" class="filter-btn active" data-filter="all">Todos</button>
+                        <button type="button" class="filter-btn" data-filter="neumaticos">Neumáticos</button>
+                        <button type="button" class="filter-btn" data-filter="taller">Aros y Taller</button>
+                        <button type="button" class="filter-btn" data-filter="lubricantes">Aceite y Motor</button>
+                    </div>
+                </div>
+
+                <!-- Grid de Galería -->
+                <div class="gallery-grid" id="galleryGrid">
+                    <!-- Producto 1: goma2.jpg -->
+                    <figure class="gallery-card" data-category="neumaticos" tabindex="0">
+                        <img src="img/goma2.jpg" alt="Lote de neumáticos importados de Japón con más de 85% de vida útil" loading="lazy">
+                        <figcaption class="gallery-caption">
+                            <div class="caption-meta">
+                                <span class="caption-tag">IMPORTACIÓN JAPONESA</span>
+                                <span class="caption-Action" aria-hidden="true">Ampliar +</span>
+                            </div>
+                            <h3>Neumáticos con 85%+ de Vida Útil</h3>
+                            <p>Banda de rodamiento profunda y caucho original listo para carretera.</p>
+                        </figcaption>
+                    </figure>
+
+                    <!-- Producto 2: goma4.jpg -->
+                    <figure class="gallery-card" data-category="neumaticos" tabindex="0">
+                        <img src="img/goma4.jpg" alt="Neumáticos Todo Terreno Geolandar X-MT y X-AT" loading="lazy">
+                        <figcaption class="gallery-caption">
+                            <div class="caption-meta">
+                                <span class="caption-tag">4X4 / ALL-TERRAIN</span>
+                                <span class="caption-Action" aria-hidden="true">Ampliar +</span>
+                            </div>
+                            <h3>Línea Off-Road & Camionetas</h3>
+                            <p>Máxima tracción para Hilux, Prado, D-Max y vehículos de carga.</p>
+                        </figcaption>
+                    </figure>
+
+                    <!-- Producto 3: goma1.avif -->
+                    <figure class="gallery-card" data-category="neumaticos" tabindex="0">
+                        <img src="img/goma1.avif" alt="Selección de neumáticos para sedanes y SUVs" loading="lazy">
+                        <figcaption class="gallery-caption">
+                            <div class="caption-meta">
+                                <span class="caption-tag">ALTO RENDIMIENTO</span>
+                                <span class="caption-Action" aria-hidden="true">Ampliar +</span>
+                            </div>
+                            <h3>Gomas Nuevas y Usadas Seleccionadas</h3>
+                            <p>Inspeccionadas una por una para garantizar cero defectos.</p>
+                        </figcaption>
+                    </figure>
+
+                    <!-- Producto 4: aceite.jpg -->
+                    <figure class="gallery-card" data-category="lubricantes" tabindex="0">
+                        <img src="img/aceite.jpg" alt="Servicio profesional de cambio de aceite de motor" loading="lazy">
+                        <figcaption class="gallery-caption">
+                            <div class="caption-meta">
+                                <span class="caption-tag">LUBRICACIÓN MOTOR</span>
+                                <span class="caption-Action" aria-hidden="true">Ampliar +</span>
+                            </div>
+                            <h3>Cambio de Aceite de Alta Pureza</h3>
+                            <p>Protección térmica y limpieza interna para alargar la vida de tu motor.</p>
+                        </figcaption>
+                    </figure>
+
+                    <!-- Producto 5: aro.jpeg -->
+                    <figure class="gallery-card" data-category="taller" tabindex="0">
+                        <img src="img/aro.jpeg" alt="Soldadura y reparación especializada de aros de aleación" loading="lazy">
+                        <figcaption class="gallery-caption">
+                            <div class="caption-meta">
+                                <span class="caption-tag">SOLDADURA & PRECISIÓN</span>
+                                <span class="caption-Action" aria-hidden="true">Ampliar +</span>
+                            </div>
+                            <h3>Reparación y Rectificación de Aros</h3>
+                            <p>Restauración profesional de fisuras y deformaciones en aros de magnesio y aluminio.</p>
+                        </figcaption>
+                    </figure>
+
+                    <!-- Producto 6: goma3.jpg -->
+                    <figure class="gallery-card" data-category="taller" tabindex="0">
+                        <img src="img/goma3.jpg" alt="Técnico instalando neumático en el centro de servicio" loading="lazy">
+                        <figcaption class="gallery-caption">
+                            <div class="caption-meta">
+                                <span class="caption-tag">MONTAJE Y BALANCEO</span>
+                                <span class="caption-Action" aria-hidden="true">Ampliar +</span>
+                            </div>
+                            <h3>Instalación y Balanceo Experto</h3>
+                            <p>Montaje cuidadoso sin rayar tus aros y calibración precisa.</p>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ==========================================================================
+             SECCIÓN DE TESTIMONIOS (CARRUSEL DE 9 RESEÑAS CON FLECHAS Y ESTRELLAS VARIADAS)
+             Diseño limpio sin línea roja a la izquierda y avatar de color sólido sobrio
+             ========================================================================== -->
+        <section class="section testimonials-section" id="testimonios">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-kicker">RESEÑAS DE CONDUCTORES REALES</span>
+                    <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+                    <p class="section-subtitle">
+                        Experiencias reales de personas satisfechas que confían su seguridad a Jaya Motors.
+                    </p>
+                </div>
+
+                <!-- Definición reusable de media estrella para calificaciones de 4.5 -->
+                <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+                    <defs>
+                        <linearGradient id="halfStarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="50%" stop-color="#f59e0b" />
+                            <stop offset="50%" stop-color="rgba(148, 163, 184, 0.28)" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+
+                <!-- Pista deslizable de 9 testimonios -->
+                <div class="testimonials-carousel-wrap">
+                    <div class="testimonials-track" id="testimonialsTrack">
+
+                        <!-- Testimonio 1 (5.0 Estrellas) -->
+                        <article class="testimonial-card spotlight-card">
+                            <div class="testimonial-top">
+                                <div class="stars-svg" aria-label="Calificación: 5 de 5 estrellas">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <span class="rating-num">5.0</span>
+                                </div>
+                                <span class="verified-pill">
+                                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Compra Verificada
+                                </span>
+                            </div>
+
+                            <blockquote class="testimonial-quote">
+                                "Compré 4 gomas usadas en Jaya Motors y me sorprendió lo buenas que han salido. La calidad es excelente, se sienten seguras en la carretera y el precio fue más que justo. Estoy encantado con la compra."
+                            </blockquote>
+
+                            <div class="testimonial-author">
+                                <div class="author-avatar">MS</div>
+                                <div class="author-meta">
+                                    <strong>Miguel Ángel Santos</strong>
+                                    <span class="vehicle-badge">Propietario Toyota Hilux</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Testimonio 2 (4.5 Estrellas) -->
+                        <article class="testimonial-card spotlight-card">
+                            <div class="testimonial-top">
+                                <div class="stars-svg" aria-label="Calificación: 4.5 de 5 estrellas">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="url(#halfStarGrad)"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <span class="rating-num">4.5</span>
+                                </div>
+                                <span class="verified-pill">
+                                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Servicio Verificado
+                                </span>
+                            </div>
+
+                            <blockquote class="testimonial-quote">
+                                "Fui para un cambio de aceite y quedé más que satisfecha. El servicio fue rápido, profesional y me explicaron todo con claridad. Mi vehículo quedó en perfectas condiciones, definitivamente volveré."
+                            </blockquote>
+
+                            <div class="testimonial-author">
+                                <div class="author-avatar">CR</div>
+                                <div class="author-meta">
+                                    <strong>Carmen Rodríguez</strong>
+                                    <span class="vehicle-badge">Propietaria Honda Civic</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Testimonio 3 (5.0 Estrellas) -->
+                        <article class="testimonial-card spotlight-card">
+                            <div class="testimonial-top">
+                                <div class="stars-svg" aria-label="Calificación: 5 de 5 estrellas">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <span class="rating-num">5.0</span>
+                                </div>
+                                <span class="verified-pill">
+                                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Cliente Frecuente
+                                </span>
+                            </div>
+
+                            <blockquote class="testimonial-quote">
+                                "La atención en Jaya Motors es de primera. El personal es amable, el servicio es eficiente y los precios son muy competitivos. Calidad y confianza al mejor precio, ¡lo recomiendo sin dudas!"
+                            </blockquote>
+
+                            <div class="testimonial-author">
+                                <div class="author-avatar">RP</div>
+                                <div class="author-meta">
+                                    <strong>Rafael Pérez</strong>
+                                    <span class="vehicle-badge">Propietario Honda CR-V</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Testimonio 4 (4.0 Estrellas) -->
+                        <article class="testimonial-card spotlight-card">
+                            <div class="testimonial-top">
+                                <div class="stars-svg" aria-label="Calificación: 4 de 5 estrellas">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="star-empty" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <span class="rating-num">4.0</span>
+                                </div>
+                                <span class="verified-pill">
+                                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Servicio Verificado
+                                </span>
+                            </div>
+
+                            <blockquote class="testimonial-quote">
+                                "Caí en un hoyo camino a Tenares y doblé un aro 18. Lo llevé a Jaya Motors y el trabajo de soldadura y rectificación quedó impecable, no pierde ni una libra de aire."
+                            </blockquote>
+
+                            <div class="testimonial-author">
+                                <div class="author-avatar">JT</div>
+                                <div class="author-meta">
+                                    <strong>José Luis Tavárez</strong>
+                                    <span class="vehicle-badge">Propietario Hyundai Sonata</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Testimonio 5 (4.5 Estrellas) -->
+                        <article class="testimonial-card spotlight-card">
+                            <div class="testimonial-top">
+                                <div class="stars-svg" aria-label="Calificación: 4.5 de 5 estrellas">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="url(#halfStarGrad)"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <span class="rating-num">4.5</span>
+                                </div>
+                                <span class="verified-pill">
+                                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Compra Verificada
+                                </span>
+                            </div>
+
+                            <blockquote class="testimonial-quote">
+                                "Mi jeepeta tenía una vibración molesta después de 80 km/h. Me hicieron el balanceo computarizado y me revisaron las gomas en menos de media hora. Ahora corre suavecito."
+                            </blockquote>
+
+                            <div class="testimonial-author">
+                                <div class="author-avatar">YP</div>
+                                <div class="author-meta">
+                                    <strong>Yulissa Polanco</strong>
+                                    <span class="vehicle-badge">Propietaria Kia Sportage</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Testimonio 6 (5.0 Estrellas) -->
+                        <article class="testimonial-card spotlight-card">
+                            <div class="testimonial-top">
+                                <div class="stars-svg" aria-label="Calificación: 5 de 5 estrellas">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <span class="rating-num">5.0</span>
+                                </div>
+                                <span class="verified-pill">
+                                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Cliente Frecuente
+                                </span>
+                            </div>
+
+                            <blockquote class="testimonial-quote">
+                                "Esas gomas japonesas que venden aquí son otra cosa. Parecen nuevas de paquete, con la carnita entera. Le puse el juego completo a mi camioneta de trabajo y rinden muchísimo."
+                            </blockquote>
+
+                            <div class="testimonial-author">
+                                <div class="author-avatar">KA</div>
+                                <div class="author-meta">
+                                    <strong>Kelvin Almánzar</strong>
+                                    <span class="vehicle-badge">Propietario Isuzu D-Max</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Testimonio 7 (4.0 Estrellas) -->
+                        <article class="testimonial-card spotlight-card">
+                            <div class="testimonial-top">
+                                <div class="stars-svg" aria-label="Calificación: 4 de 5 estrellas">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg class="star-empty" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <span class="rating-num">4.0</span>
+                                </div>
+                                <span class="verified-pill">
+                                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Servicio Verificado
+                                </span>
+                            </div>
+
+                            <blockquote class="testimonial-quote">
+                                "Fui a cambiar las bandas de freno porque me estaban sonando. Trabajan por orden de llegada, había par de carros delante, pero los muchachos se mueven rápido y cobran lo justo."
+                            </blockquote>
+
+                            <div class="testimonial-author">
+                                <div class="author-avatar">HC</div>
+                                <div class="author-meta">
+                                    <strong>Héctor Camilo</strong>
+                                    <span class="vehicle-badge">Propietario Toyota Corolla</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Testimonio 8 (4.5 Estrellas) -->
+                        <article class="testimonial-card spotlight-card">
+                            <div class="testimonial-top">
+                                <div class="stars-svg" aria-label="Calificación: 4.5 de 5 estrellas">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="url(#halfStarGrad)"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <span class="rating-num">4.5</span>
+                                </div>
+                                <span class="verified-pill">
+                                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Compra Verificada
+                                </span>
+                            </div>
+
+                            <blockquote class="testimonial-quote">
+                                "Excelente trato desde que uno llega. Les escribí por WhatsApp para preguntar por mi numeración, me confirmaron al instante y en 20 minutos ya tenía mis gomas montadas y balanceadas."
+                            </blockquote>
+
+                            <div class="testimonial-author">
+                                <div class="author-avatar">PT</div>
+                                <div class="author-meta">
+                                    <strong>Paola Tejada</strong>
+                                    <span class="vehicle-badge">Propietaria Mazda CX-5</span>
+                                </div>
+                            </div>
+                        </article>
+
+                        <!-- Testimonio 9 (5.0 Estrellas) -->
+                        <article class="testimonial-card spotlight-card">
+                            <div class="testimonial-top">
+                                <div class="stars-svg" aria-label="Calificación: 5 de 5 estrellas">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                                    <span class="rating-num">5.0</span>
+                                </div>
+                                <span class="verified-pill">
+                                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                                    Cliente Frecuente
+                                </span>
+                            </div>
+
+                            <blockquote class="testimonial-quote">
+                                "Tengo más de 6 años trayendo mis vehículos a Jaya Motors aquí en San Francisco. Gente seria, honesta y que no te inventa piezas para cobrarte de más. Los mejores del Cibao."
+                            </blockquote>
+
+                            <div class="testimonial-author">
+                                <div class="author-avatar">AR</div>
+                                <div class="author-meta">
+                                    <strong>Aneudy Rosario</strong>
+                                    <span class="vehicle-badge">Propietario Montero Sport</span>
+                                </div>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- Botones de navegación Izquierda / Derecha debajo de las cards -->
+                    <div class="carousel-controls" aria-label="Controles del carrusel de testimonios">
+                        <button type="button" class="carousel-btn" id="testimonioPrev" aria-label="Ver testimonios anteriores">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="15 18 9 12 15 6"/>
+                            </svg>
+                        </button>
+                        <button type="button" class="carousel-btn" id="testimonioNext" aria-label="Ver siguientes testimonios">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ================================ -->
-    <!-- FOOTER -->
-    <!-- ================================ -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h4>JAYA MOTORS</h4>
-                    <p>Tu centro automotriz de confianza. Más de 17 años cuidando tu vehículo.</p>
+        <!-- ==========================================================================
+             SECCIÓN DE CONTACTO, UBICACIÓN Y HORARIO (CTA FINAL)
+             Incluye navegación directa con Google Maps y Waze + Botón WhatsApp
+             ========================================================================== -->
+        <section class="section contact-section" id="contacto">
+            <div class="container">
+                <div class="contact-panel">
+                    <!-- Columna Izquierda: Llamado a la acción -->
+                    <div class="contact-cta-col">
+                        <span class="section-kicker">VISÍTANOS EN SAN FRANCISCO DE MACORÍS</span>
+                        <h2 class="contact-title">¿Listo para Darle el Mejor Servicio a Tu Vehículo?</h2>
+                        <p class="contact-desc">
+                            No esperes a que un pequeño problema se convierta en uno grande. Ven a nuestro centro de servicios y mantén tu vehículo en óptimas condiciones con manos expertas.
+                        </p>
+
+                        <div class="contact-buttons">
+                            <button type="button" class="btn btn-whatsapp btn-lg" data-wa-service="Hola Jaya Motors! Me gustaría pasar por el centro de servicios para atender mi vehículo.">
+                                <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                                </svg>
+                                <span>Contactar por WhatsApp</span>
+                            </button>
+
+                            <a href="tel:+18292902929" class="btn btn-titanium btn-lg">
+                                <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                                <span>Llamar al (829) 290-2929</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Columna Derecha: Tarjetas de Ubicación GPS y Horario -->
+                    <div class="contact-info-col">
+                        <!-- Tarjeta de Ubicación -->
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <div class="info-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                        <circle cx="12" cy="10" r="3"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="mono-label">COORDENADAS: 19.3134° N, 70.2683° W</span>
+                                    <h3>Ubicación del Centro</h3>
+                                </div>
+                            </div>
+
+                            <p class="info-address">Calle Caonabo #12, San Francisco De Macorís, República Dominicana</p>
+
+                            <div class="map-links">
+                                <a href="https://www.google.com/maps/search/?api=1&query=19.3134437,-70.2682731" target="_blank" rel="noopener noreferrer" class="map-pill">
+                                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/>
+                                        <line x1="9" y1="3" x2="9" y2="18"/>
+                                        <line x1="15" y1="6" x2="15" y2="21"/>
+                                    </svg>
+                                    <span>Abrir en Google Maps</span>
+                                </a>
+
+                                <a href="https://waze.com/ul?ll=19.3134437,-70.2682731&navigate=yes" target="_blank" rel="noopener noreferrer" class="map-pill">
+                                    <svg class="icon-xs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                                    </svg>
+                                    <span>Navegar con Waze</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta de Horario -->
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <div class="info-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <polyline points="12 6 12 12 16 14"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <span class="mono-label">ATENCIÓN POR ORDEN DE LLEGADA</span>
+                                    <h3>Horario de Servicio</h3>
+                                </div>
+                            </div>
+
+                            <ul class="schedule-list">
+                                <li>
+                                    <span>Lunes a Viernes</span>
+                                    <strong class="mono-value">8:00 AM – 6:00 PM</strong>
+                                </li>
+                                <li>
+                                    <span>Sábados</span>
+                                    <strong class="mono-value">8:00 AM – 4:00 PM</strong>
+                                </li>
+                                <li class="closed-day">
+                                    <span>Domingos</span>
+                                    <strong class="mono-value">Cerrado</strong>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer-col">
-                    <h4>Enlaces Rápidos</h4>
+            </div>
+        </section>
+    </main>
+
+    <!-- ==========================================================================
+         FOOTER Y SELLO DE AUTOR (RALDY LOPEZ PORTFOLIO SIGNATURE)
+         ========================================================================== -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Columna 1: Marca -->
+                <div class="footer-brand-col">
+                    <div class="footer-brand">
+                        <img src="img/logo.png" alt="Logo Jaya Motors" class="footer-logo">
+                        <span class="brand-name">JAYA <em>MOTORS</em></span>
+                    </div>
+                    <p class="footer-desc">
+                        Tu centro automotriz de confianza en San Francisco de Macorís. Más de 17 años cuidando tu vehículo con neumáticos importados de Japón y mecánica de precisión.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Navegación -->
+                <div class="footer-links-col">
+                    <h4>Explorar</h4>
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#nosotros">Nosotros</a></li>
-                        <li><a href="#servicios">Servicios</a></li>
-                        <li><a href="#trabajos">Trabajos</a></li>
+                        <li><a href="#servicios">Nuestros Servicios</a></li>
+                        <li><a href="#nosotros">¿Por Qué Elegirnos?</a></li>
+                        <li><a href="#trabajos">Productos y Galería</a></li>
+                        <li><a href="#testimonios">Clientes</a></li>
                     </ul>
                 </div>
-                <div class="footer-col">
-                    <h4>Contacto</h4>
+
+                <!-- Columna 3: Servicios Principales -->
+                <div class="footer-links-col">
+                    <h4>Servicios</h4>
                     <ul>
-                        <li>📞 <a href="tel:+18292902929" style="color: inherit; text-decoration: none; transition: color 0.3s ease;" onmouseover="this.style.color='#25D366'; this.style.textDecoration='underline';" onmouseout="this.style.color='inherit'; this.style.textDecoration='none';"></a>(829)-290-2929</a></li>
-                        <li>📍 San Francisco De Macoris, R.D.</li>
+                        <li><a href="#servicios">Gomas Nuevas y Usadas (85%+)</a></li>
+                        <li><a href="#servicios">Cambio de Aceite</a></li>
+                        <li><a href="#servicios">Balanceo Computarizado</a></li>
+                        <li><a href="#servicios">Cambio de Banda</a></li>
+                        <li><a href="#servicios">Reparación de Aros</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto Directo -->
+                <div class="footer-links-col">
+                    <h4>Contacto Directo</h4>
+                    <ul class="footer-contact-list">
+                        <li>
+                            <svg class="icon-xs text-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <a href="tel:+18292902929">(829)-290-2929</a>
+                        </li>
+                        <li>
+                            <svg class="icon-xs text-red" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+                            </svg>
+                            <span>Calle Caonabo #12, SFM, R.D.</span>
+                        </li>
                     </ul>
                 </div>
             </div>
+
+            <!-- Barra Inferior de Derechos y Sello de Portafolio de Raldy Lopez -->
             <div class="footer-bottom">
-                <p>&copy; 2026 Jaya Motors. Todos los derechos reservados.</p>
-                <p style="margin-top: 10px; font-size: 0.9em;">Developed by <a href="https://raldylopez20.github.io/Landing-page-personal-de-servicios/" style="color: #dc2626; text-decoration: none; font-weight: bold;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">Raldy Lopez</a></p>
+                <p class="copyright">&copy; 2026 Jaya Motors. Todos los derechos reservados.</p>
+
+                <a href="https://raldylopez20.github.io/Landing-page-personal-de-servicios/" target="_blank" rel="noopener noreferrer" class="developer-signature" title="¿Quieres una página web así de dura? Mira el portafolio de Ing. Raldy Lopez">
+                    <span class="sig-dot"></span>
+                    <span class="sig-label">Developed by</span>
+                    <strong class="sig-name">Ing. Raldy Lopez</strong>
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- ================================ -->
-    <!-- BOTÓN FLOTANTE DE WHATSAPP -->
-    <!-- ================================ -->
-    <a href="#" class="whatsapp-float" onclick="openWhatsApp(); return false;">
-        <svg viewBox="0 0 24 24" fill="currentColor">
+    <!-- ==========================================================================
+         MODAL LIGHTBOX PARA AMPLIAR FOTOS DE LA GALERÍA
+         ========================================================================== -->
+    <div class="lightbox" id="lightboxModal" aria-hidden="true" role="dialog" aria-label="Vista ampliada del producto">
+        <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Cerrar vista ampliada">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <div class="lightbox-content">
+            <img src="" alt="" id="lightboxImg">
+            <div class="lightbox-caption">
+                <span class="caption-tag" id="lightboxTag"></span>
+                <h3 id="lightboxTitle"></h3>
+                <p id="lightboxDesc"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         BOTÓN FLOTANTE DE WHATSAPP
+         ========================================================================== -->
+    <button type="button" class="whatsapp-float" data-wa-service="Hola Jaya Motors! Me gustaría agendar una cita o cotizar un servicio para mi vehículo." aria-label="Chatear por WhatsApp con Jaya Motors">
+        <span class="wa-float-tooltip">¿Cotizamos tu goma o servicio?</span>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.149-.67.149-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414-.074-.123-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
         </svg>
-    </a>
+    </button>
 
-    <!-- ================================ -->
-    <!-- JAVASCRIPT -->
-    <!-- ================================ -->
-    <script>
-        /**
-         * Función para abrir WhatsApp con mensaje predefinido
-         * IMPORTANTE: Reemplaza el número de teléfono con el número real
-         */
-        function openWhatsApp() {
-            // Reemplaza este número con el número de WhatsApp real
-            // Formato: código de país + número sin espacios ni guiones
-            const phoneNumber = '+18092902929'; 
-            
-            // Mensaje predefinido
-            const message = encodeURIComponent('Hola Jaya Motors! Me gustaría agendar una cita para mi vehículo 🚗');
-            
-            // Abre WhatsApp
-            window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
-        }
-
-        /**
-         * Smooth scroll para navegación
-         */
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                if (this.getAttribute('href') !== '#') {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                }
-            });
-        });
-
-        /**
-         * Animación de entrada para elementos
-         */
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1
-        });
-
-        // Observa todas las tarjetas
-        document.querySelectorAll('.razon-card, .servicio-card, .testimonio-card, .trabajo-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-
-        /**
-         * Header cambia de color al hacer scroll
-         */
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(220, 38, 38, 0.98)';
-                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
-            } else {
-                header.style.background = 'linear-gradient(135deg, #dc2626 0%, #1e40af 100%)';
-                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-            }
-        });
-
-        /**
-         * Funcionalidad del menú hamburguesa para móvil
-         */
-        const menuMobile = document.querySelector('.menu-mobile');
-        const navLinks = document.querySelector('.nav-links');
-        
-        menuMobile.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            
-            // Cambiar el ícono del menú
-            if (navLinks.classList.contains('active')) {
-                menuMobile.textContent = '✕';
-            } else {
-                menuMobile.textContent = '☰';
-            }
-        });
-
-        // Cerrar el menú al hacer clic en un enlace
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                menuMobile.textContent = '☰';
-            });
-        });
-
-        // Cerrar el menú al hacer scroll
-        window.addEventListener('scroll', () => {
-            if (navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                menuMobile.textContent = '☰';
-            }
-        });
-    </script>
+    <!-- ==========================================================================
+         SCRIPT PRINCIPAL (MODULAR Y DOCUMENTADO)
+         ========================================================================== -->
+    <script src="script.js" defer></script>
 </body>
 </html>
